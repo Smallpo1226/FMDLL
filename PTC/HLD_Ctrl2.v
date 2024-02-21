@@ -11,7 +11,7 @@ module HLD_Ctrl2 (
 
     assign clk2b = ~clk2;
     FD_2 F0 (.clk(clk2b), .rst_n(rst_n), .DIV_2(clk2b_div2));
-
+    // 123
     always @(*) begin
         if (M == 1) begin
             Ctrl_HLD2 = ~((~clk2b_div2) | clk2b);
