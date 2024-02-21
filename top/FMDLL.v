@@ -1,13 +1,13 @@
-`include "PTC.v"
-`include "FMC.v"
-`include "DCDL.v"
+`include "..\PTC\PTC.v"
+`include "..\FMC\FMC.v"
+`include "..\DCDL\DCDL.v"
 `include "ClK_COUNT.v"
 
 module FMDLL (Sel,M,N,CLK_exit,CLK_out,rst_n);
 
 input [1:0]Sel;
-input [1:0]M,M_counter;
-input [2:0]N,N_counter;
+input [1:0]M;
+input [2:0]N;
 input rst_n;
 wire [1:0]M_counter;
 wire [2:0]N_counter;
