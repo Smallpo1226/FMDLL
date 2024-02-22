@@ -14,10 +14,7 @@ wire DIV_N;
 
 FD_M F0(.M(M),.DIV_M(DIV_M),.CLK_exit(CLK_exit),.rst_n(rst_n),.M_counter(M_counter));
 FD_N F1(.N(N),.DIV_N(DIV_N),.CLK_out(CLK_out),.rst_n(rst_n),.N_counter(N_counter));
-Select_Logic F2(.DIV_N(DIV_N),.DIV_M(DIV_M),.Sel(Sel));
-
-
-
+Select_Logic F2(.DIV_N(DIV_N),.CLK_out(CLK_out),.clk_ext(clk_ext),.DIV_M(DIV_M),.M(M),.N(N),.N_counter(N_counter),.M_counter(M_counter),.Sel(Sel));
 
 
 
