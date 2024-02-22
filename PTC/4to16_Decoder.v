@@ -7,7 +7,7 @@
 
  always @* begin
         if (!rst_n) begin
-            T=15'b000000000000001;
+            T=15'b000000000000000;
         end
         else begin
             case (Q[9:6])
