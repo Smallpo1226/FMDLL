@@ -6,7 +6,11 @@ module Decoder4to16 (
 );
     always @(*) begin
         if (!rst_n) begin
+<<<<<<< HEAD
             T = 15'b000000000000001;
+=======
+            T=15'b000000000000000;
+>>>>>>> 57dd470b14ea1eea9f5fd37319435cfaf1188d27
         end
         else begin
             case (Q[9:6])
