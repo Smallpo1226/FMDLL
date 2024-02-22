@@ -3,7 +3,6 @@
 `include"10bit_SAR.v"
 `include"Clock_divider.v"
 `include "4to16_Decoder.v"
-
 module PTC (Sel,N,M,DIV_M,CLK_exit,CLK_out,Q,T,Tb,M_counter,N_counter,rst_n);
 input [1:0] Sel;
 input [1:0]M,M_counter;

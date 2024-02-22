@@ -1,3 +1,6 @@
+`include "FD_M.v"
+`include "FD_N.v"
+`include "Select_Logic.v"
 module FMC (CLK_exit,CLK_out,rst_n,Sel,DIV_M);
 input CLK_exit;
 input CLK_out;
