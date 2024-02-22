@@ -30,7 +30,6 @@ module Decoder4to16 (
             endcase
         end 
     end
-//123
     always @(*) begin
         Tb = ~T;
     end
