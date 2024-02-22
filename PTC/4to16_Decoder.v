@@ -6,7 +6,7 @@ module Decoder4to16 (
 );
     always @(*) begin
         if (!rst_n) begin
-            T=16'b0000000000000000;
+            T = 16'b0000000000000000;
         end
         else begin
             case (Q[3:0])
