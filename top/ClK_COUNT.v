@@ -19,7 +19,7 @@ always@*
 always@(posedge CLK_exit or negedge rst_n)
     if(~rst_n)
         begin
-            cnt_tmp_M <= 2'd0;
+            M_counter <= 2'd0;
         end
     else
         begin
@@ -38,7 +38,7 @@ always@*
 always@(posedge CLK_out or negedge rst_n)
     if(~rst_n)
         begin
-            cnt_tmp_N <= 3'd0;
+            N_counter <= 3'd1;
         end
     else
         begin
