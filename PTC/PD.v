@@ -11,7 +11,7 @@ always @(posedge CLK_exit or negedge Reset_PD)
 begin
     if (~Reset_PD) begin 
         COMP<=1'b0;
-    end else if((M_counter ==2'b1)&&(N_counter ==3'b1)) begin 
+    end else if((M_counter ==2'd1)&&(N_counter ==3'd1)) begin 
         COMP <= CLK_out;//1 lead
     end
 end

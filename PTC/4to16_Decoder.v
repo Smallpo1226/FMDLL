@@ -1,19 +1,15 @@
 module Decoder4to16 (
     input rst_n,
-    input [9:0] Q,
+    input [3:0] Q,
     output reg [15:0] T,
     output reg [15:0] Tb
 );
     always @(*) begin
         if (!rst_n) begin
-<<<<<<< HEAD
-            T = 15'b000000000000001;
-=======
-            T=15'b000000000000000;
->>>>>>> 57dd470b14ea1eea9f5fd37319435cfaf1188d27
+            T=16'b0000000000000000;
         end
         else begin
-            case (Q[9:6])
+            case (Q[3:0])
                 4'd0: T = 16'b0000000000000000;
                 4'd1: T = 16'b0000000000000001;
                 4'd2: T = 16'b0000000000000010;
