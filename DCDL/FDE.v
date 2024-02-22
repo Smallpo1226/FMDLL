@@ -1,9 +1,8 @@
-module FDE (Q,Qb,connect,feedback,out);
+module FDE (Q,Qb,connect,feedback);
 input connect;
 input feedback;
 input Q;
 input Qb;
-output out;
 wire wire1;
 wire wire2;
 

@@ -20,7 +20,7 @@ wire [9:0] Q;
 
 PTC U0( .Sel(Sel),   .M(M),  .DIV_m(DIV_m),  .CLK_exit(CLK_exit),    .CLK_out(CLK_out),  .Q(Q) ,.N_counter(N_counter),.M_counter(M_counter));
 FMC U1(.CLK_exit(CLK_exit),.CLK_out(CLK_out),.rst_n(rst_n),.Sel(Sel),.DIV_M(DIV_M),.M_counter(M_counter),.N_counter(N_counter));
-DCDL U2(.clk_mid(clk_mid),.Q(Q),.T(T),.Tb(Tb),.clk_out(clk_out));
+DCDL U2(.clk_mid(clk_mid),.Q(Q[5:0]),.T(T),.Tb(Tb),.clk_out(clk_out));
 ClK_COUNT U3(.CLK_exit(CLK_exit),.CLK_out(CLK_out),.N_counter(N_counter),.M_counter(M_counter),.rst_n(rst_n));
 
 always@* begin

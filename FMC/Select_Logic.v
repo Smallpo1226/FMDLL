@@ -15,13 +15,13 @@ module Select_Logic (
         if((N_counter == N) && (~DIV_N)) begin
             Sel = 2'b10;
         end
+        else
         Sel = 2'b00;
     end
     else if(M_counter == M)begin
         if((~clk_out) && (~DIV_M) && (~DIV_N)) begin
             Sel = 2'b01;
-        end
-        Sel = 2'b00;
+        end 
     end
 end
 
