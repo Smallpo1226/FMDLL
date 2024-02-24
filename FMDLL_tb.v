@@ -6,7 +6,11 @@ module FMDLL_tb();
     reg CLK_exit;
     reg rst_n;
     wire CLK_out;    
+<<<<<<< HEAD
     FMDLL u1(.M(M),
+=======
+    PLL u1(.M(M),
+>>>>>>> 97d0d07a342f99c76c923794c31d27bce48c8bf9
            .N(N),
            .CLK_exit(CLK_exit),
            .CLK_out(CLK_out),
