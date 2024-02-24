@@ -3,9 +3,9 @@ module Select_Logic (
     input clk_out,
     input clk_ext,
     input DIV_M,
-    input [2:0] N, 
+    input [3:0] N, 
     input [1:0] M, 
-    input [2:0] N_counter,
+    input [3:0] N_counter,
     input [1:0] M_counter,
     output reg [1:0] Sel
 );

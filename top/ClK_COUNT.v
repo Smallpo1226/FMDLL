@@ -1,11 +1,11 @@
 module ClK_COUNT (CLK_exit,CLK_out,N_counter,M_counter,M,N,rst_n);
 input CLK_exit,CLK_out;
-input [2:0] N;
+input [3:0] N;
 input [1:0] M;
 input rst_n;
-output reg [2:0] N_counter;
+output reg [3:0] N_counter;
 output reg [1:0] M_counter;
-reg [2:0] cnt_tmp_N;
+reg [3:0] cnt_tmp_N;
 reg [1:0] cnt_tmp_M;
 always@*
     if( M_counter == M)

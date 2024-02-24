@@ -1,5 +1,5 @@
  module FD_N(rst_n, N , DIV_N , CLK_out, N_counter);
-input [2:0]N;
+input [3:0]N;
 input CLK_out;
 input rst_n;
 input N_counter;

@@ -4,7 +4,7 @@ output reg COMP;
 input CLK_exit,CLK_out;
 input Reset_PD;
 input [1:0] M_counter;
-input [2:0] N_counter;
+input [3:0] N_counter;
 
 
 always @(posedge CLK_exit or negedge Reset_PD)
