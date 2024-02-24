@@ -20,7 +20,7 @@ wire COMP;
 
 
 Clock_divider P0(.rst_n(rst_n),.M(M),.DIV_M(DIV_M),.CLK_exit(CLK_exit),.clk2(clk2),.clk4(clk4));
-HLD P1(.clk2(clk2),.clk4(clk4),.Sel(Sel),.DIV_M(DIV_M),.M(M[0]),.CLK_exit(CLK_exit),.Reset_PD(Reset_PD));
+HLD P1(.clk2(clk2),.clk4(clk4),.Sel(Sel[0]),.DIV_M(DIV_M),.M(M[0]),.CLK_exit(CLK_exit),.Reset_PD(Reset_PD));
 PD P2(.CLK_exit(CLK_exit),.CLK_out(CLK_out),.Reset_PD(Reset_PD),.COMP(COMP),.N_counter(N_counter),.M_counter(M_counter));
 Decoder4to16 P3(.rst_n(rst_n),.Q(Q[9:6]),.T(T),.Tb(Tb));
 SAR P4(.COMP(COMP),.clk4(clk4),.rst_n(rst_n),.Q(Q));
