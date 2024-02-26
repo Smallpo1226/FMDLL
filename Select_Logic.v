@@ -1,8 +1,8 @@
 
 module Select_Logic (
     input DIV_N,
-    input CLK_out,
-    input CLK_exit,
+    input clk_out,
+    input clk_ext,
     input DIV_M,
     input [3:0] N, 
     input [1:0] M, 
@@ -20,7 +20,7 @@ module Select_Logic (
         Sel = 2'b00;
     end
     else if(M_counter == M)begin
-        if((~CLK_out) && (~DIV_M) && (~DIV_N)) begin
+        if((~clk_out) && (~DIV_M) && (~DIV_N)) begin
             Sel = 2'b01;
         end 
     end

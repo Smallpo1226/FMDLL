@@ -1,13 +1,13 @@
-module Clock_divider( rst_n , M , DIV_M , CLK_exit  , clk2 , clk4 );
+module Clock_divider( rst_n , M , DIV_M , clk_ext  , clk2 , clk4 );
     reg [6:0]cnt_tmp_2,cnt_tmp_4;
     reg clk_tmp_2,clk_tmp_4;
     reg [1:0]cnt_2,cnt_4;
     wire clk_in;
 	input [1:0]M;
 	input rst_n;
-    input DIV_M,CLK_exit;
+    input DIV_M,clk_ext;
 	output reg clk2,clk4;
-    assign clk_in = (M>2'd1) ? DIV_M : CLK_exit;
+    assign clk_in = (M>2'd1) ? DIV_M : clk_ext;
 always@*
     if( cnt_2 == 2'd1)
         begin

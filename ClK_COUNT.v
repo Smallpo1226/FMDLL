@@ -1,5 +1,5 @@
-module ClK_COUNT (CLK_exit,CLK_out,N_counter,M_counter,M,N,rst_n);
-input CLK_exit,CLK_out;
+module ClK_COUNT (clk_ext,clk_out,N_counter,M_counter,M,N,rst_n);
+input clk_ext,clk_out;
 input [3:0] N;
 input [1:0] M;
 input rst_n;
@@ -16,7 +16,7 @@ always@*
         begin
             cnt_tmp_M = M_counter + 2'd1;
         end
-always@(posedge CLK_exit or negedge rst_n)
+always@(posedge clk_ext or negedge rst_n)
     if(~rst_n)
         begin
             M_counter <= 2'd0;
@@ -35,7 +35,7 @@ always@*
         begin
             cnt_tmp_N = N_counter + 3'd1;
         end
-always@(posedge CLK_out or negedge rst_n)
+always@(posedge clk_out or negedge rst_n)
     if(~rst_n)
         begin
             N_counter <= 3'd1;
