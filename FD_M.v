@@ -1,8 +1,8 @@
  module FD_M(rst_n, M , DIV_M , clk_ext, M_counter);
-input [1:0]M;
+input [1:0] M;
 input clk_ext;
 input rst_n;
-input M_counter;
+input [1:0] M_counter;
 output reg DIV_M;
 
  always@(posedge clk_ext or negedge rst_n) begin

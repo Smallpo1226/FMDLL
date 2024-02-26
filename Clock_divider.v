@@ -1,5 +1,5 @@
 module Clock_divider( rst_n , M , DIV_M , clk_ext  , clk2 , clk4 );
-    reg [6:0]cnt_tmp_2,cnt_tmp_4;
+    reg [1:0]cnt_tmp_2,cnt_tmp_4;
     reg clk_tmp_2,clk_tmp_4;
     reg [1:0]cnt_2,cnt_4;
     wire clk_in;
@@ -11,7 +11,7 @@ module Clock_divider( rst_n , M , DIV_M , clk_ext  , clk2 , clk4 );
 always@*
     if( cnt_2 == 2'd1)
         begin
-            cnt_tmp_2 = 7'b1;
+            cnt_tmp_2 = 2'b1;
             clk_tmp_2 = ~clk2;
         end
     else
@@ -22,7 +22,7 @@ always@*
 always@*
     if( cnt_4 == 2'd2)
         begin
-            cnt_tmp_4 = 7'b1;
+            cnt_tmp_4 = 2'b1;
             clk_tmp_4 = ~clk4;
         end
     else
@@ -33,9 +33,9 @@ always@*
 always@(posedge clk_in or negedge rst_n)
     if(~rst_n)
         begin
-            cnt_2 <= 7'b0;
+            cnt_2 <= 2'b0;
             clk2 <= 1'b0;
-            cnt_4 <= 7'b0;
+            cnt_4 <= 2'b0;
             clk4 <= 1'b0;
         end
     else

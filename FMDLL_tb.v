@@ -1,6 +1,5 @@
 `timescale 1ns/100ps
 module FMDLL_tb();
-    reg [1:0] Sel;
     reg [1:0] M;
     reg [3:0] N;
     reg clk_ext;
