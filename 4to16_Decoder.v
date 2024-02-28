@@ -2,7 +2,7 @@ module Decoder4to16 (
     input rst_n,
     input [3:0] Q,
     output reg [15:0] T,
-    output reg [15:0] Tb
+    output  [15:0] Tb
 );
     always @(*) begin
         if (!rst_n) begin
@@ -30,7 +30,7 @@ module Decoder4to16 (
             endcase
         end 
     end
-    always @(*) begin
-        Tb = ~T;
-    end
+
+    assign Tb = ~T;
+
 endmodule

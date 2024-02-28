@@ -8,16 +8,18 @@ module Select_Logic (
     input [1:0] M, 
     input [3:0] N_counter,
     input [1:0] M_counter,
-    output reg [1:0] Sel
+    output reg [1:0] Sel,
+    input rst_n
 );
 
    always@* begin
-    if(M_counter != M) begin
+     if(M_counter != M) begin
         if((N_counter == N) && (~DIV_N)) begin
             Sel = 2'b10;
         end
-        else
+        else if(M_counter == 2'd1) begin
         Sel = 2'b00;
+        end
     end
     else if(M_counter == M)begin
         if((~clk_out) && (~DIV_M) && (~DIV_N)) begin

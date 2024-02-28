@@ -33,8 +33,8 @@ module SAR (
     end
                         
     
-    always@(posedge clk4) begin
-        if(rst_n) begin
+    always@(posedge clk4 or negedge rst_n) begin
+        if(~rst_n) begin
 			count<=4'd9;
 			Q<=10'b1000000000;
 	

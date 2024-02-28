@@ -19,13 +19,15 @@ module FMDLL_tb();
       N      = 4'd10;
       M      = 2'd3;
       rst_n  = 1;
-      #10
+      #9
       rst_n  = 0;
+      #20
+      rst_n  = 1;
       #3000
       $finish;
     end
 
-    always #(1 / 2) clk_ext = ~clk_ext;
+    always #(10) clk_ext = ~clk_ext;
     
     initial begin
    	$sdf_annotate("./FMDLL_syn.sdf", u1);

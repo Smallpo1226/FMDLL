@@ -3,6 +3,8 @@ module FDL (
     input clk_in,
     output clk_out
 );
+
+    wire inverter_out;
     wire [5:0] dummy_wire;
     NAND2X8 FDE1 (.A(clk_in), .B(Q[0]), .Y(dummy_wire[0]));
     NAND2X8 FDE2 (.A(clk_in), .B(Q[1]), .Y(dummy_wire[1]));
@@ -11,6 +13,7 @@ module FDL (
     NAND2X8 FDE5 (.A(clk_in), .B(Q[4]), .Y(dummy_wire[4]));
     NAND2X8 FDE6 (.A(clk_in), .B(Q[5]), .Y(dummy_wire[5]));
 
-    assign clk_out = clk_in;
+    assign inverter_out = ~clk_in;
+    assign clk_out = inverter_out;
 
 endmodule

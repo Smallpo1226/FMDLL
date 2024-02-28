@@ -16,18 +16,18 @@ always@*
         begin
             cnt_tmp_M = M_counter + 2'd1;
         end
-always@(posedge clk_ext or negedge rst_n)
+always@(posedge clk_ext or negedge rst_n) begin
     if(~rst_n)
         begin
-            M_counter <= 2'd0;
+            M_counter <= 2'd1;
         end
     else
         begin
             M_counter <= cnt_tmp_M;
         end
-
+end
 always@*
-    if( N_counter == N)
+    if( N_counter == N )
         begin
             cnt_tmp_N = 3'd1;
         end
@@ -35,14 +35,13 @@ always@*
         begin
             cnt_tmp_N = N_counter + 3'd1;
         end
-always@(posedge clk_out or negedge rst_n)
+always@(posedge clk_out or negedge rst_n) begin
     if(~rst_n)
         begin
             N_counter <= 3'd1;
         end
-    else
-        begin
+    else begin
             N_counter <= cnt_tmp_N;
         end
-
+end
 endmodule
