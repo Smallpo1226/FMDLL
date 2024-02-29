@@ -1,6 +1,5 @@
 `timescale 1ns/100ps
 module FMDLL_tb();
-    reg [1:0] Sel;
     reg [1:0] M;
     reg [3:0] N;
     reg clk_ext;
@@ -19,15 +18,15 @@ module FMDLL_tb();
       N      = 4'd10;
       M      = 2'd3;
       rst_n  = 1;
-      #9
+      #6
       rst_n  = 0;
-      #20
+      #10
       rst_n  = 1;
       #3000
       $finish;
     end
 
-    always #(10) clk_ext = ~clk_ext;
+    always #(7) clk_ext = ~clk_ext;
     
     initial begin
    	$sdf_annotate("./FMDLL_syn.sdf", u1);

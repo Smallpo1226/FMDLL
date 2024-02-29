@@ -36,7 +36,7 @@ always@(posedge clk_in or negedge rst_n)
             cnt_2 <= 2'b0;
             clk2 <= 1'b0;
             cnt_4 <= 2'b0;
-            clk4 <= 1'b1;
+            clk4 <= 1'b0;
         end
     else
         begin

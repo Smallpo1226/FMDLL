@@ -26,13 +26,13 @@ ClK_COUNT U3(.clk_ext(clk_ext),.clk_out(clk_out),.N_counter(N_counter),.M_counte
 
 always@* begin
     if(!rst_n) begin
-        clk_mid = clk_ext;
+        clk_mid = 1;
     end
     else begin
     case (Sel)
         2'b00: clk_mid = clk_out;
         2'b01: clk_mid = clk_ext;
-        2'b10: clk_mid = 0;
+        2'b10: clk_mid = 1;
         default: clk_mid = clk_ext;
     endcase
     end

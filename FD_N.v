@@ -7,7 +7,7 @@ output reg DIV_N;
 
  always@(posedge clk_out or negedge rst_n) begin
    if (!rst_n)
-     DIV_N <= 0;
+     DIV_N <= 1;
    else if (N_counter == N-4'd1)
      DIV_N <= 0;
    else if (N_counter == N)
