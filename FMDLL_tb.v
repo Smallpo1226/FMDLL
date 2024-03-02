@@ -17,8 +17,8 @@ module FMDLL_tb();
 
     initial begin
       clk_ext= 1;
-      N      = 4'd10;
-      M      = 2'd3;
+      N      = 4'd8; // N = 1,4,5,8,10
+      M      = 2'd3; // M = 1,2,3
       rst_n  = 1;
       #5
       rst_n  = 0;
@@ -28,8 +28,24 @@ module FMDLL_tb();
       $finish;
     end
 
-    always #(9) clk_ext = ~clk_ext;
-    
+    always #(7.2) clk_ext = ~clk_ext;
+//X	 4/1 period = ???
+//X  5/1 period = ???
+//X  8/1 period = ???
+//X  10/1 period = ???
+
+//O  4/2 period = 5~6
+//X  5/2 period = 7.1 -------- (tiny operating range)
+//O  8/2 period = 5.5~6.3 
+//O  10/2 period = 13.2~13.9
+
+//O  4/3 period = 4~4.5
+//O  5/3 period = 4.7~5.2
+//X  8/3 period = 6.9~7 ------ (tiny operating range)
+//O  10/3 period = 9~9.5
+	
+
+
     initial begin
    	$sdf_annotate("./FMDLL_syn.sdf", u1);
 	$fsdbDumpfile("../4.Simulation_Result/FMDLL_syn.fsdb");
