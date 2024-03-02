@@ -24,5 +24,5 @@ module CDL (
     DDC DDC15 (.I(P1_out[13]), .T(T[14]), .Tb(Tb[14]), .P2(P2_in[14]), .O(P2_in[13]), .P1(P1_out[14]));
     DDC DDC16 (.I(P1_out[14]), .T(T[15]), .Tb(Tb[15]), .P2(P1_out[15]), .O(P2_in[14]), .P1(P1_out[15]));
     
-    //assign P2_in[15] = P1_out[15];
+    assign P2_in[15] = P1_out[15];
 endmodule

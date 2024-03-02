@@ -19,7 +19,7 @@ always@*
 always@(posedge clk_ext or negedge rst_n) begin
     if(~rst_n)
         begin
-            M_counter <= 2'd0;
+            M_counter <= 2'd1;
         end
     else
         begin
@@ -29,16 +29,16 @@ end
 always@*
     if( N_counter == N )
         begin
-            cnt_tmp_N = 3'd1;
+            cnt_tmp_N = 4'd1;
         end
     else
         begin
-            cnt_tmp_N = N_counter + 3'd1;
+            cnt_tmp_N = N_counter + 4'd1;
         end
 always@(posedge clk_out or negedge rst_n) begin
     if(~rst_n)
         begin
-            N_counter <= 3'd0;
+            N_counter <= 4'd1;
         end
     else begin
             N_counter <= cnt_tmp_N;

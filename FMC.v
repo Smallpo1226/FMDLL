@@ -9,7 +9,7 @@ input [1:0] M_counter;
 input [3:0] N_counter;
 input [1:0] M;
 input [3:0] N;
-output [1:0]Sel;
+output reg [1:0] Sel;
 output DIV_M;
 
 wire DIV_N;

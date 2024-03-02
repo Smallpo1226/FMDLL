@@ -31,7 +31,32 @@ set_dont_touch {U2/D1/DDC13/NAND2X2}
 set_dont_touch {U2/D1/DDC14/NAND2X2}
 set_dont_touch {U2/D1/DDC15/NAND2X2}
 set_dont_touch {U2/D1/DDC16/NAND2X2}
-set_dont_touch {U2/D2/NAND2X8}
+set_dont_touch {U2/D1/DDC1/BUFX2}
+set_dont_touch {U2/D1/DDC2/BUFX2}
+set_dont_touch {U2/D1/DDC3/BUFX2}
+set_dont_touch {U2/D1/DDC4/BUFX2}
+set_dont_touch {U2/D1/DDC5/BUFX2}
+set_dont_touch {U2/D1/DDC6/BUFX2}
+set_dont_touch {U2/D1/DDC7/BUFX2}
+set_dont_touch {U2/D1/DDC8/BUFX2}
+set_dont_touch {U2/D1/DDC9/BUFX2}
+set_dont_touch {U2/D1/DDC10/BUFX2}
+set_dont_touch {U2/D1/DDC11/BUFX2}
+set_dont_touch {U2/D1/DDC12/BUFX2}
+set_dont_touch {U2/D1/DDC13/BUFX2}
+set_dont_touch {U2/D1/DDC14/BUFX2}
+set_dont_touch {U2/D1/DDC15/BUFX2}
+set_dont_touch {U2/D1/DDC16/BUFX2}
+set_dont_touch {U2/D2/BUFX4}
+set_dont_touch {U2/D2/TBUFXL}
+set_dont_touch {U2/D2/TBUFX1}
+set_dont_touch {U2/D2/TBUFX2}
+set_dont_touch {U2/D2/TBUFX3}
+set_dont_touch {U2/D2/TBUFX4}
+set_dont_touch {U2/D2/TBUFX6}
+set_dont_touch {U2/D2/TBUFX8}
+set_dont_touch {U2/D2/TBUFX12}
+set_dont_touch {U2/D2/TBUFX16}
 set_dont_touch {U0/P1/DFFSHQX1}
 create_clock -period $ref_cycle [get_ports clk_ext]
 set_dont_touch_network [get_clocks clk_ext]

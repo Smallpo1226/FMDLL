@@ -5,11 +5,13 @@ module FMDLL_tb();
     reg clk_ext;
     reg rst_n;
     wire clk_out;    
+	wire [1:0] Sel;
     FMDLL u1(.M(M),
            .N(N),
            .clk_ext(clk_ext),
            .clk_out(clk_out),
-           .rst_n(rst_n)
+           .rst_n(rst_n),
+		   .Sel(Sel)
            );
   
 
@@ -18,15 +20,15 @@ module FMDLL_tb();
       N      = 4'd10;
       M      = 2'd3;
       rst_n  = 1;
-      #6
+      #5
       rst_n  = 0;
-      #10
+      #20
       rst_n  = 1;
       #3000
       $finish;
     end
 
-    always #(7) clk_ext = ~clk_ext;
+    always #(9) clk_ext = ~clk_ext;
     
     initial begin
    	$sdf_annotate("./FMDLL_syn.sdf", u1);

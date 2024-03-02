@@ -1,12 +1,12 @@
 module SAR (
     input COMP,
     input clk4,
-    input DIV_M,
     input rst_n,
-    output reg [9:0] Q
+    output reg [9:0] Q,
+    output reg [9:0] Q_next
 );
     
-    reg [9:0] Q_next;
+    //reg [9:0] Q_next;
     reg [3:0] count_next,count;
 
     always@* begin
@@ -23,7 +23,7 @@ module SAR (
             else if (count == 0) begin
                 Q_next[0] = 0;
             end    
-        end else if (COMP==0) begin    //lead
+        end else if (COMP == 1'b0) begin    //lead
             if (count != 0) begin
                 Q_next[count-1] = 1;
                 count_next = count - 4'd1;
@@ -34,7 +34,7 @@ module SAR (
     end
                         
     
-    always@(posedge DIV_M or negedge rst_n) begin
+    always@(posedge clk4 or negedge rst_n) begin
         if(~rst_n) begin
 			count<=4'd9;
 			Q<=10'b1000000000;
