@@ -17,7 +17,7 @@ module HLD (
     wire HLD2;
     wire DFF_to_latch_1;
     wire DFF_to_latch_2;
-    supply0 gnd;
+    supply1 gnd;
     HLD_Ctrl1 Controller1 (.clk2(clk2), .clk4(clk4), .M(M), .DIV_M(DIV_M), .Ctrl_HLD1(Ctrl_HLD1));
     HLD_Ctrl2 Controller2 (.clk2(clk2), .clk4(clk4), .M(M), .DIV_M(DIV_M), .rst_n(rst_n), .Ctrl_HLD2(Ctrl_HLD2));
     DFFSHQX1 DFF1 (.D(gnd), .CK(Sel), .SN(~Ctrl_HLD1), .Q(DFF_to_latch_1));

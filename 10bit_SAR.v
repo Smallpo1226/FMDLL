@@ -3,7 +3,8 @@ module SAR (
     input clk4,
     input rst_n,
     output reg [9:0] Q,
-    output reg [9:0] Q_next
+    output reg [9:0] Q_next,
+    input DIV_M
 );
     
     //reg [9:0] Q_next;
@@ -34,7 +35,7 @@ module SAR (
     end
                         
     
-    always@(posedge clk4 or negedge rst_n) begin
+    always@(posedge DIV_M or negedge rst_n) begin
         if(~rst_n) begin
 			count<=4'd9;
 			Q<=10'b1000000000;

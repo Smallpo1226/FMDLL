@@ -3,13 +3,15 @@ module HLD_Ctrl1 (
     input clk4,
     input M,
     input DIV_M,
-    output reg Ctrl_HLD1
+    output  Ctrl_HLD1
 );
-    always @(*) begin
-        if (M == 1) begin
-            Ctrl_HLD1 = ~(clk2 | (~clk4));
-        end else begin
-            Ctrl_HLD1 = ~((~(clk2 & clk4)) | DIV_M);
-        end
-    end
+    wire clk_nand;
+    wire Ctrl_HLD1_tmp1,Ctrl_HLD1_tmp2;
+    wire clk4b;
+
+    NAND2XL H7(.A(clk2),.B(clk4),.Y(clk_nand));
+    NOR2XL H8(.A(clk_nand),.B(DIV_M),.Y(Ctrl_HLD1_tmp1));
+    INVXL H9(.A(clk4),.Y(clk4b));
+    NOR2XL H10(.A(clk4b),.B(clk2),.Y(Ctrl_HLD1_tmp2));
+    assign Ctrl_HLD1 = M ? Ctrl_HLD1_tmp2:Ctrl_HLD1_tmp1;
 endmodule

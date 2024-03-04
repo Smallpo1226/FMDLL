@@ -21,19 +21,20 @@ wire [15:0] T,Tb;
 
 PTC U0( .Sel(Sel),.N(N),   .M(M),  .DIV_M(DIV_M),  .clk_ext(clk_ext),    .clk_out(clk_out),  .Q(Q) ,.Q_next(Q_next),.T(T),.Tb(Tb),.N_counter(N_counter),.M_counter(M_counter),.rst_n(rst_n));
 FMC U1(.clk_ext(clk_ext),.clk_out(clk_out),.rst_n(rst_n),.Sel(Sel),.DIV_M(DIV_M),.M_counter(M_counter),.N_counter(N_counter),.M(M),.N(N));
-DCDL U2(.clk_mid(clk_mid),.Q(Q),.T(T),.Tb(Tb),.clk_out(clk_out));
-ClK_COUNT U3(.clk_ext(clk_ext),.clk_out(clk_out),.N_counter(N_counter),.M_counter(M_counter),.M(M),.N(N),.rst_n(rst_n));
+DCDL U2(.clk_mid(clk_mid),.Q(Q),.T(T),.Tb(Tb),.clk_out(clk_out),.clk_coarse_out(clk_coarse_out));
+ClK_COUNT U3(.clk_ext(clk_ext),.clk_out(clk_out),.N_counter(N_counter),.M_counter(M_counter),.M(M),.N(N),.rst_n(rst_n),.Sel(Sel[0]));
 
 always@* begin
     if(~rst_n) begin
-        clk_mid <= clk_ext;
+        clk_mid = clk_ext;
     end else begin
 		case (Sel)
-			2'b00: clk_mid <= clk_out;
-			2'b01: clk_mid <= clk_ext;
-			2'b10: clk_mid <= 1;
-			default: clk_mid <= clk_ext;
+			2'b00: clk_mid = clk_out;
+			2'b01: clk_mid = clk_ext;
+			2'b10: clk_mid = 1;
+			default: clk_mid = clk_ext;
 		endcase
     end
 end
+
 endmodule

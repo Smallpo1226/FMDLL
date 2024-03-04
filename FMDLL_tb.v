@@ -17,7 +17,7 @@ module FMDLL_tb();
 
     initial begin
       clk_ext= 1;
-      N      = 4'd8; // N = 1,4,5,8,10
+      N      = 4'd10; // N = 1,4,5,8,10
       M      = 2'd3; // M = 1,2,3
       rst_n  = 1;
       #5

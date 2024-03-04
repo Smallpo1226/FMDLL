@@ -7,7 +7,7 @@ output reg DIV_M;
 
  always@(posedge clk_ext or negedge rst_n)begin
    if (!rst_n)
-     DIV_M <= 0;
+     DIV_M <= 1;
    else if (M_counter == M-2'd1)
      DIV_M <= 0;
    else if (M_counter == M)
