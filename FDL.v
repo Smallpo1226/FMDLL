@@ -21,15 +21,15 @@ module FDL (
 		endcase end
 	end
 	
-    TBUFX20 F1 (.A(clk_in), .OE(Code[0]), .Y(inv_in));
-    TBUFX16 F2 (.A(clk_in), .OE(Code[1]), .Y(inv_in));
-    TBUFX12 F3 (.A(clk_in), .OE(Code[2]), .Y(inv_in));
+    TBUFX20 F1 (.A(clk_in), .OE(Code[6]), .Y(inv_in));
+    TBUFX16 F2 (.A(clk_in), .OE(Code[5]), .Y(inv_in));
+    TBUFX12 F3 (.A(clk_in), .OE(Code[4]), .Y(inv_in));
     TBUFX8 F4 (.A(clk_in), .OE(Code[3]), .Y(inv_in));
-    TBUFX6 F5 (.A(clk_in), .OE(Code[4]), .Y(inv_in));
-    TBUFX4 F6 (.A(clk_in), .OE(Code[5]), .Y(inv_in));
-	TBUFX3 F0 (.A(clk_in), .OE(Code[6]), .Y(inv_in));
-	BUFX4 F7 (.A(clk_in), .Y(inv_in));
-
+    TBUFX6 F5 (.A(clk_in), .OE(Code[2]), .Y(inv_in));
+    TBUFX4 F6 (.A(clk_in), .OE(Code[1]), .Y(inv_in));
+	TBUFX3 F0 (.A(clk_in), .OE(Code[0]), .Y(inv_in));
+	BUFX2 F7 (.A(clk_in), .Y(inv_in));
+	//BUFX2 F8 (.A(clk_in), .Y(inv_in));
     assign inv_out = ~inv_in;
     assign clk_out = inv_out;
 
