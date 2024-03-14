@@ -1,29 +1,31 @@
-
 module Select_Logic (
     input DIV_N,
-    input CLK_out,
-    input CLK_exit,
+    input clk_out,
+    input clk_ext,
     input DIV_M,
     input [3:0] N, 
     input [1:0] M, 
     input [3:0] N_counter,
     input [1:0] M_counter,
-    output reg [1:0] Sel
+    output reg [1:0] Sel,
+    input rst_n
 );
-
-   always@* begin
-    if(M_counter != M) begin
-        if((N_counter == N) && (~DIV_N)) begin
-            Sel = 2'b10;
-        end
-        else
-        Sel = 2'b00;
+	reg [1:0] Sel_tmp;
+    always @(*) begin
+		if (~rst_n) begin
+			Sel_tmp = 2'b00;
+		end else if (M_counter == 1) begin
+			Sel_tmp = 2'b00;
+		end else if (N_counter == N && M_counter != M ) begin
+			Sel_tmp = 2'b10;
+		end else if (N_counter == N && M_counter == M && (~clk_out)) begin
+			Sel_tmp = 2'b01;
+		end else begin 
+			Sel_tmp = Sel; 
+		end
     end
-    else if(M_counter == M)begin
-        if((~CLK_out) && (~DIV_M) && (~DIV_N)) begin
-            Sel = 2'b01;
-        end 
-    end
-end
-
+	
+	always @(*) begin
+		Sel = Sel_tmp;
+	end
 endmodule

@@ -8,7 +8,7 @@ module FD_2( clk, rst_n, DIV_2 );
 always@*
     if( cnt_2 == 2'd1)
         begin
-            cnt_tmp_2 = 2'b1;
+            cnt_tmp_2 = 2'b0;
             clk_tmp_2 = ~DIV_2;
         end
     else
@@ -20,7 +20,7 @@ always@(posedge clk or negedge rst_n)
     if(~rst_n)
         begin
             cnt_2 <= 2'b0;
-            DIV_2 <= 1'b0;
+            DIV_2 <= 1'b1;
         end
     else
         begin
