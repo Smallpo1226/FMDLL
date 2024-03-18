@@ -13,7 +13,7 @@ module Select_Logic (
 	reg [1:0] Sel_tmp;
     always @(*) begin
 		if (~rst_n) begin
-			Sel_tmp = 2'b00;
+			Sel_tmp = 2'b10;
 		end else if (M_counter == 1) begin
 			Sel_tmp = 2'b00;
 		end else if (N_counter == N && M_counter != M ) begin

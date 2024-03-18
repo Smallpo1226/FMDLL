@@ -2,10 +2,11 @@ module Decoder4to16 (
     input rst_n,
     input [3:0] Q,
     output reg [15:0] T,
-    output  [15:0] Tb
+    output  [15:0] Tb,
+    input [1:0]Sel
 );
     always @(*) begin
-        if (!rst_n) begin
+        if (!rst_n ) begin
             T = 16'b0000000000000000;
         end
         else begin

@@ -36,7 +36,7 @@ always@(posedge clk_in or negedge rst_n)
         begin
             cnt_2 <= 2'b0;
             clk2_tmp <= 1'b0;
-            cnt_4 <= 2'b0;
+            cnt_4 <= 2'b1;
             clk4_tmp <= 1'b0;
         end
     else
@@ -47,7 +47,7 @@ always@(posedge clk_in or negedge rst_n)
             clk4_tmp <= clk_tmp_4;
         end
 
-always@(posedge clk_ext or negedge rst_n)
+always@(negedge clk_in or negedge rst_n)
     if(~rst_n)
         begin
         clk2 <= 1'b0;
