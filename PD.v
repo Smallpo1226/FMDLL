@@ -43,4 +43,3 @@ endmodule
             COMP <= clk_out;//1 lead
         end
     end*/
-
