@@ -2,8 +2,7 @@ module Decoder4to16 (
     input rst_n,
     input [3:0] Q,
     output reg [15:0] T,
-    output  [15:0] Tb,
-    input [1:0]Sel
+    output  [15:0] Tb
 );
     always @(*) begin
         if (!rst_n ) begin

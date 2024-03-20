@@ -23,6 +23,7 @@ module SAR (
             end
             else if (count == 0) begin
                 Q_next[0] = 0;
+				count_next = 0;
             end    
         end else if (COMP == 1'b1) begin    //lead
             if (count != 0) begin
@@ -30,6 +31,7 @@ module SAR (
                 count_next = count - 4'd1;
             end else if(count == 0)begin
                 Q_next[0]= 1;
+				count_next = 0;
             end
         end
     end
@@ -43,7 +45,7 @@ module SAR (
         end
         else begin
 			Q<=Q_next;
-			count<=count_next;
+			count <= count_next;
 		end  
     end
     

@@ -13,5 +13,5 @@ module HLD_Ctrl1 (
     NOR2XL H8(.A(clk_nand),.B(DIV_M),.Y(Ctrl_HLD1_tmp1));
     INVXL H9(.A(clk4),.Y(clk4b));
     NOR2XL H10(.A(clk4b),.B(clk2),.Y(Ctrl_HLD1_tmp2));
-    assign Ctrl_HLD1 = M ? Ctrl_HLD1_tmp2:Ctrl_HLD1_tmp1;
+    assign Ctrl_HLD1 = (M == 1) ? Ctrl_HLD1_tmp2:Ctrl_HLD1_tmp1;
 endmodule
