@@ -5,5 +5,6 @@ module D_latch (
   input rst_n
 );
 	assign q = (rst_n) ? ((en) ? d : q) : 0;
-	
+
 endmodule
+

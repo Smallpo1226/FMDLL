@@ -6,7 +6,7 @@ module FD_2( clk, rst_n, DIV_2 );
     input clk;
 	output reg DIV_2;
 always@*
-    if( cnt_2 == 2'd1)
+    if( cnt_2 == 2'd0)
         begin
             cnt_tmp_2 = 2'b0;
             clk_tmp_2 = ~DIV_2;

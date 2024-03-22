@@ -16,7 +16,7 @@ module Select_Logic (
 			Sel_tmp = 2'b10;
 		end else if (M_counter == 1) begin
 			Sel_tmp = 2'b00;
-		end else if (N_counter == N && M_counter != M ) begin
+		end else if (N_counter == N && DIV_M == 1 ) begin
 			Sel_tmp = 2'b10;
 		end else if (N_counter == N && M_counter == M && (~clk_out)) begin
 			Sel_tmp = 2'b01;

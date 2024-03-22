@@ -8,7 +8,7 @@ module Clock_divider( rst_n , M , DIV_M , clk_ext  , clk2 , clk4 );
 	input rst_n;
     input DIV_M,clk_ext;
 	output reg clk2,clk4;
-    assign clk_in = (M>2'd1) ? DIV_M : clk_ext;
+    assign clk_in = (M != 2'd1) ? DIV_M : clk_ext;
 always@*
     if( cnt_2 == 2'd1)
         begin
@@ -35,7 +35,7 @@ always@(posedge clk_in or negedge rst_n)
     if(~rst_n)
         begin
             cnt_2 <= 2'b0;
-            clk2_tmp <= 1'b0;
+            clk2_tmp <= 1'b1;
             cnt_4 <= 2'b1;
             clk4_tmp <= 1'b0;
         end

@@ -1,5 +1,7 @@
 module PD(
     output reg COMP,
+    //output reg lead,
+    //output reg lag,
     //input clk_ext, 
 	input clk_out,
     input Reset_PD,
@@ -11,33 +13,6 @@ module PD(
     //input [9:0] Q_next,
 	input DIV_M
 );  
-	//reg COMP_tmp;
-	/*
-    always @(posedge clk_ext)
-    begin
-        if (Reset_PD) begin  
-            COMP_tmp = 0;
-        end else if((M_counter == 2'd1) && (N_counter == 3'd1)) begin 
-            if (Q != Q_next) begin
-                COMP_tmp = 1;
-            end
-		end else if((M_counter == M) && (N_counter == 3'd1)) begin 
-            if (Q != Q_next) begin
-                COMP_tmp = 1;
-            end
-        end else if ((M_counter == M) && (N_counter == N)) begin
-			if (Q != Q_next) begin
-                COMP_tmp = 0;
-            end
-        end else begin
-            COMP_tmp = 1;
-        end
-    end
-    always @ (posedge clk_ext)
-    begin
-        COMP <= COMP_tmp;
-    end
-	*/
 	always @(posedge DIV_M or posedge Reset_PD) begin
 		if (Reset_PD) begin  
             COMP = 0;
@@ -47,5 +22,37 @@ module PD(
 			COMP = 1;
 		end
 	end
+    /*
+    wire ff_rst;
+    assign ff_rst = ~(lag & lead); 
+
+    always @(posedge clk_ext or negedge ff_rst or negedge rst_n)
+    begin
+        if (~rst_n) begin 
+            lag<=1'b0;
+        end else if (~ff_rst) begin 
+            lag <= 1'b0;
+        end else if (M_counter == M-1 || M_counter == M) begin 
+            lag <= 1'b1;
+        end else begin
+			lag <= 1'b0;
+		end
+    end
+
+    always @(posedge clk_out or negedge ff_rst or negedge rst_n )
+    begin
+        if (~rst_n) begin 
+            lead<=1'b0;
+        end else if (~ff_rst) begin 
+            lead <= 1'b0;
+        end else if (M_counter == M && clk_ext == 0) begin 
+            lead <= 1'b1;
+        end else if (lag) begin
+			lead <= 1'b1;
+		end else begin
+			lead <= 1'b0;
+		end
+    end 
+    */
 endmodule
     

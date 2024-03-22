@@ -2,19 +2,22 @@ module SAR (
     input COMP,
     input clk4,
     input rst_n,
+    //input lead,
+    //input lag,
+    //input [1:0] M,
+    //input [3:0] N,
     output reg [9:0] Q,
     output reg [9:0] Q_next,
+    output reg [3:0] count,
     input DIV_M
 );
     
     //reg [9:0] Q_next;
-    reg [3:0] count_next,count;
+    reg [3:0] count_next;
 
     always@* begin
-
 		Q_next = Q;
         count_next = count;
-
         if (COMP == 1'b0) begin    //lag
             if (count != 0) begin
                 Q_next[count] = 0;
@@ -33,11 +36,10 @@ module SAR (
                 Q_next[0]= 1;
 				count_next = 0;
             end
-        end
+        end 
     end
-                        
     
-    always@(posedge clk4 or negedge rst_n) begin
+    always@(negedge clk4 or negedge rst_n) begin
         if(~rst_n) begin
 			count<=4'd9;
 			Q<=10'b1000000000;
