@@ -6,7 +6,7 @@ module DDC (
     output O,
     output P1
 );
-	parameter delay_group = 10'd2;
+	parameter delay_group = 10'd1;
     wire dummy, before_P1;
 	wire [12:0] buf_path;
     wire A1toA3;
