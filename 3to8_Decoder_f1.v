@@ -7,7 +7,7 @@ module Decoder3to8_f1 (
 );
     always @(*) begin
         if (!rst_n) begin
-            T = 8'b10010000;
+            T = 8'b00010000;
         end
         else if (count <= 4'd5) begin
             case (Q[2:0])

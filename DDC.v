@@ -21,7 +21,7 @@ module DDC (
             BUFX2 C1(.A(buf_path[i]), .Y(buf_path[i+1]));
         end
     endgenerate
-	
+
 	BUFX2 B1(.A(buf_path[delay_group]), .Y(P1));
     
 	//BUFX2 B0(.A(before_P1), .Y(P1));

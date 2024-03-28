@@ -8,7 +8,22 @@ module Clock_divider( rst_n , M , DIV_M , clk_ext  , clk2 , clk4 );
 	input rst_n;
     input DIV_M,clk_ext;
 	output reg clk2,clk4;
+
+	parameter delay_group = 10'd7;	
+    wire clk_ext_tmp,clk_ext_push;
+    wire [delay_group+1:0] buf_path;
+    BUFX2 B0(.A(clk_ext), .Y(buf_path[0]));
+    genvar i;
+	generate
+        for (i = 0; i < delay_group; i = i + 1) begin:loop3
+            BUFX2 C1(.A(buf_path[i]), .Y(buf_path[i+1]));
+        end
+    endgenerate
+	BUFX2 B1(.A(buf_path[delay_group]), .Y(clk_ext_tmp));
+    
+
     assign clk_in = (M != 2'd1) ? DIV_M : clk_ext;
+    assign clk_ext_push = (M != 2'd1) ? clk_ext : clk_ext_tmp;
 always@*
     if( cnt_2 == 2'd1)
         begin
@@ -47,7 +62,7 @@ always@(posedge clk_in or negedge rst_n)
             clk4_tmp <= clk_tmp_4;
         end
 
-always@(negedge clk_in or negedge rst_n)
+always@(posedge clk_ext_push or negedge rst_n)
     if(~rst_n)
         begin
         clk2 <= 1'b0;
