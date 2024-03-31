@@ -14,7 +14,7 @@ set_operating_conditions -min_library fast -min fast \
 #/*--------------------------------------------------------------*/
 #/*--------------- 2. Set design constraints --------------------*/ 
 #/*--------------------------------------------------------------*/
-
+#set_dont_touch {BUFX2}
 set_dont_touch {U2/D1/DDC1/NAND2X2}
 set_dont_touch {U2/D1/DDC2/NAND2X2}
 set_dont_touch {U2/D1/DDC3/NAND2X2}
@@ -47,17 +47,32 @@ set_dont_touch {U2/D1/DDC13/BUFX2}
 set_dont_touch {U2/D1/DDC14/BUFX2}
 set_dont_touch {U2/D1/DDC15/BUFX2}
 set_dont_touch {U2/D1/DDC16/BUFX2}
-set_dont_touch {U2/D2/BUFX4}
-set_dont_touch {U2/D2/TBUFXL}
-set_dont_touch {U2/D2/TBUFX1}
-set_dont_touch {U2/D2/TBUFX2}
-set_dont_touch {U2/D2/TBUFX3}
-set_dont_touch {U2/D2/TBUFX4}
-set_dont_touch {U2/D2/TBUFX6}
-set_dont_touch {U2/D2/TBUFX8}
-set_dont_touch {U2/D2/TBUFX12}
-set_dont_touch {U2/D2/TBUFX16}
+set_dont_touch {U2/D2/FDE1/NAND2X4}
+set_dont_touch {U2/D2/FDE2/NAND2X4}
+set_dont_touch {U2/D2/FDE3/NAND2X4}
+set_dont_touch {U2/D2/FDE4/NAND2X4}
+set_dont_touch {U2/D2/FDE5/NAND2X4}
+set_dont_touch {U2/D2/FDE6/NAND2X4}
+set_dont_touch {U2/D2/FDE7/NAND2X4}
+set_dont_touch {U2/D2/FDE8/NAND2X4}
+set_dont_touch {U2/D3/FDE1/NAND2X4}
+set_dont_touch {U2/D3/FDE2/NAND2X4}
+set_dont_touch {U2/D3/FDE3/NAND2X4}
+set_dont_touch {U2/D3/FDE4/NAND2X4}
+set_dont_touch {U2/D3/FDE5/NAND2X4}
+set_dont_touch {U2/D3/FDE6/NAND2X4}
+set_dont_touch {U2/D3/FDE7/NAND2X4}
+set_dont_touch {U2/D3/FDE8/NAND2X4}
+
 set_dont_touch {U0/P1/DFFSHQX1}
+
+set_dont_touch {U0/P1/Controller1/NAND2XL}
+set_dont_touch {U0/P1/Controller1/NOR2XL}
+set_dont_touch {U0/P1/Controller1/INVXL}
+
+set_dont_touch {U0/P1/Controller2/INVXL}
+set_dont_touch {U0/P1/Controller2/NOR2XL}
+
 create_clock -period $ref_cycle [get_ports clk_ext]
 set_dont_touch_network [get_clocks clk_ext]
 set_fix_hold clk_ext

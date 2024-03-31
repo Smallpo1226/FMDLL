@@ -23,8 +23,6 @@ module DDC (
     endgenerate
 
 	BUFX2 B1(.A(buf_path[delay_group]), .Y(P1));
-    
-	//BUFX2 B0(.A(before_P1), .Y(P1));
 
     NAND2X2 A1(.A(I), .B(T), .Y(A1toA3));
     NAND2X2 A2(.A(A1toA3), .B(P2), .Y(dummy));

@@ -60,8 +60,7 @@ module HLD_Ctrl2 (
     always@(negedge clk2b or negedge rst_n)begin
         if(~rst_n)begin
             glitch <=0 ;
-        end else
-        if(clk2b_div2_inv==0)begin
+        end else if(clk2b_div2_inv==0)begin
             glitch <=1 ;
         end
         else begin

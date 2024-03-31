@@ -8,8 +8,8 @@ module FDE (
 );
     wire dummy, before_P1;
     wire A1toA3;
-    NAND2X4 A0(.A(I), .B(Tb), .Y(P1));
-    NAND2X4 A1(.A(I), .B(T), .Y(A1toA3));
-    NAND2X4 A2(.A(A1toA3), .B(P2), .Y(dummy));
-    NAND2X4 A3(.A(P2), .B(A1toA3), .Y(O));
+    NAND2XL A0(.A(I), .B(Tb), .Y(P1));
+    NAND2XL A1(.A(I), .B(T), .Y(A1toA3));
+    NAND2XL A2(.A(A1toA3), .B(P2), .Y(dummy));
+    NAND2XL A3(.A(P2), .B(A1toA3), .Y(O));
 endmodule

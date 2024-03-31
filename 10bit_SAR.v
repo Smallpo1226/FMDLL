@@ -2,17 +2,11 @@ module SAR (
     input COMP,
     input clk4,
     input rst_n,
-    //input lead,
-    //input lag,
-    //input [1:0] M,
-    //input [3:0] N,
     output reg [9:0] Q,
     output reg [9:0] Q_next,
     output reg [3:0] count,
     input DIV_M
 );
-    
-    //reg [9:0] Q_next;
     reg [3:0] count_next;
 
     always@* begin

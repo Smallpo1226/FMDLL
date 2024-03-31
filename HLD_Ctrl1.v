@@ -37,11 +37,9 @@ module HLD_Ctrl1 (
     always@(negedge clk2 or negedge rst_n)begin
         if(~rst_n)begin
             glitch_1 <=0 ;
-        end else
-        if(clk4b == 0)begin
+        end else if(clk4b == 0)begin
             glitch_1 <=1 ;
-        end
-        else begin
+        end else begin
             glitch_1 <=0 ;
         end
     end

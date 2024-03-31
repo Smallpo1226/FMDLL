@@ -16,7 +16,7 @@ always@*
             cnt_tmp_2 = cnt_2 + 1;
             clk_tmp_2 = DIV_2;
         end
-always@(posedge clk or negedge rst_n)
+always@(negedge clk or negedge rst_n)
     if(~rst_n)
         begin
             cnt_2 <= 2'b0;

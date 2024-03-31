@@ -5,12 +5,8 @@ input rst_n;
 input [1:0] M_counter;
 output reg DIV_M;
 reg DIV_M_tmp;
- always@(posedge clk_ext /*or negedge rst_n*/)begin
-      /*if (!rst_n) begin
-          DIV_M <= 0;
-      end else */begin
+ always@(posedge clk_ext)begin
           DIV_M <= DIV_M_tmp;
-      end 
  end
  always @* begin
     if (M_counter == M || M_counter == 2'd0)

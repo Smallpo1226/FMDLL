@@ -27,7 +27,6 @@ FMC U1(.clk_ext(clk_ext),.clk_out(clk_out),.rst_n(rst_n),.Sel(Sel),.DIV_M(DIV_M)
 DCDL U2(.clk_mid(clk_mid),.Q(Q),.T(T),.Tb(Tb),.T_f1(T_f1),.Tb_f1(Tb_f1),.T_f2(T_f2),.Tb_f2(Tb_f2),.clk_out(clk_out_tmp),.Sel(Sel),.clk_ext(clk_ext)   ,.clk_out_out(clk_out));
 ClK_COUNT U3(.clk_ext(clk_ext),.clk_out(clk_out),.N_counter(N_counter),.M_counter(M_counter),.M(M),.N(N),.rst_n(rst_n),.Sel(Sel[0]));
 
-
 always@* begin
     /*if(~rst_n) begin
         clk_mid = clk_ext;
@@ -42,16 +41,38 @@ always@* begin
 end 
 //reg false;
 //BUFX20 DUMMY0(.A(clk_ext),.Y(clk_ext_dummy));
-assign clk_out = (Sel == 2'b10||(Sel == 2'b01 && clk_ext == 1'b1 && clk_out==1'b0)/*||false == 1*/) ? 0:clk_out_tmp;
+wire t;
+assign t = (Sel == 2'b10||(Sel == 2'b01 && clk_ext == 1'b1 && clk_out==1'b0)/*||false == 1*/) ? 0:clk_out_tmp;
 
-/*always @(posedge clk_ext)begin
-	if(clk_out==1 && clk_out_tmp==1) begin
-		false <= 0;
-	end else if(clk_out==0 && clk_out_tmp==1) begin
-		false <= 1;
-	end else begin
-		false <= 0;
+//added block
+
+parameter bit = 35;
+wire [bit:0] glitch_free, glitch_free_next, glitch_free_next2;
+assign glitch_free[0] = t;
+genvar i;
+generate
+	for (i = 0; i < bit; i = i + 1) begin:glitch_eliminate
+		CLKBUFX2 G0( .A (glitch_free[i]), .Y (glitch_free[i+1]) );
 	end
-end*/
+endgenerate
+
+assign glitch_free_next[1] = glitch_free[0] & glitch_free[1];
+generate 
+	for (i = 1; i < bit; i = i + 1) begin:glitch_eliminate2
+		assign glitch_free_next[i+1] = glitch_free[i+1] | glitch_free_next[i];
+		//AND2X2 A0(.A(glitch_free[i+1]), .B(glitch_free_next[i]), .Y(glitch_free_next[i+1]));
+	end
+endgenerate
+assign clk_out = glitch_free_next[bit];
+/*
+assign glitch_free_next2[1] = glitch_free_next[0] & glitch_free_next[1];
+generate 
+	for (i = 1; i < bit-10; i = i + 1) begin:glitch_eliminate3
+		assign glitch_free_next2[i+1] = glitch_free_next[i+1] & glitch_free_next2[i];
+		//AND2X2 A1(.A(glitch_free_next[i+1]), .B(glitch_free_next2[i]), .Y(glitch_free_next2[i+1]));
+	end
+endgenerate
+*/
+
 
 endmodule
