@@ -9,11 +9,11 @@ module FD_2 (
 
     always @(*) begin
         if(cnt_2 == 2'd0) begin
-            cnt_tmp_2 <= 2'b0;
-            clk_tmp_2 <= ~DIV_2;
+            cnt_tmp_2 = 2'b0;
+            clk_tmp_2 = ~DIV_2;
         end else begin
-            cnt_tmp_2 <= cnt_2 + 1;
-            clk_tmp_2 <= DIV_2;
+            cnt_tmp_2 = cnt_2 + 1;
+            clk_tmp_2 = DIV_2;
         end
     end
 

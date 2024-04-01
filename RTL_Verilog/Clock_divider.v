@@ -30,21 +30,21 @@ module Clock_divider(
 
     always @(*) begin
         if( cnt_2 == 2'd1) begin
-            cnt_tmp_2 <= 2'b1;
-            clk_tmp_2 <= ~clk2_tmp;
+            cnt_tmp_2 = 2'b1;
+            clk_tmp_2 = ~clk2_tmp;
         end else begin
-            cnt_tmp_2 <= cnt_2 + 1;
-            clk_tmp_2 <= clk2_tmp;
+            cnt_tmp_2 = cnt_2 + 1;
+            clk_tmp_2 = clk2_tmp;
         end
     end
     
     always @(*) begin
         if(cnt_4 == 2'd2) begin
-            cnt_tmp_4 <= 2'b1;
-            clk_tmp_4 <= ~clk4_tmp;
+            cnt_tmp_4 = 2'b1;
+            clk_tmp_4 = ~clk4_tmp;
         end else begin
-            cnt_tmp_4 <= cnt_4 + 1;
-            clk_tmp_4 <= clk4_tmp;
+            cnt_tmp_4 = cnt_4 + 1;
+            clk_tmp_4 = clk4_tmp;
         end
     end
     always @(posedge clk_in or negedge rst_n) begin

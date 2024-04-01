@@ -19,7 +19,6 @@ module FMC (
         .M(M),
         .DIV_M(DIV_M_tmp),
         .clk_ext(clk_ext),
-        .rst_n(rst_n),
         .M_counter(M_counter)
     );
 
@@ -34,10 +33,8 @@ module FMC (
     Select_Logic F2(
         .DIV_N(DIV_N),
         .clk_out(clk_out),
-        .clk_ext(clk_ext),
         .DIV_M(DIV_M),
-        .M(M),.N(N),
-        .N_counter(N_counter),
+        .M(M),
         .M_counter(M_counter),
         .Sel(Sel),
         .rst_n(rst_n)
@@ -46,12 +43,12 @@ module FMC (
     always @(*) begin
         if (M == 2'd1) begin
             if(rst_n == 1) begin
-                DIV_M <= clk_ext;
+                DIV_M = clk_ext;
             end else begin
-                DIV_M <= 0;
+                DIV_M = 0;
             end
         end else begin
-            DIV_M  <= DIV_M_tmp;
+            DIV_M  = DIV_M_tmp;
         end
     end
 

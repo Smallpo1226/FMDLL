@@ -91,7 +91,7 @@ module FMDLL (
 	end 
 
 	wire t;
-	assign t = (Sel == 2'b10||(Sel == 2'b01 && clk_ext == 1'b1 && clk_out==1'b0)) ? 0:clk_out_tmp;
+	assign t = (Sel == 2'b10||(Sel == 2'b01 && clk_ext == 1'b1 && clk_out==1'b0)) ? 0:clk_out_tmp;	// eliminate glitch
 
 	//added block to eliminate glitch
 	parameter bit = 35;

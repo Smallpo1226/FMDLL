@@ -13,9 +13,9 @@ module Clock_counter(
 
     always @(*) begin
         if (M_counter == M) begin
-            cnt_tmp_M <= 2'd1;
+            cnt_tmp_M = 2'd1;
         end else begin
-            cnt_tmp_M <= M_counter + 2'd1;
+            cnt_tmp_M = M_counter + 2'd1;
         end
     end
 
@@ -29,9 +29,9 @@ module Clock_counter(
 
     always @(*) begin
         if(N_counter == N) begin
-            cnt_tmp_N <= 4'd1;
+            cnt_tmp_N = 4'd1;
         end else begin
-            cnt_tmp_N <= N_counter + 4'd1;
+            cnt_tmp_N = N_counter + 4'd1;
         end
     end
     

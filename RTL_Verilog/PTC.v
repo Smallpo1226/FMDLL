@@ -36,23 +36,18 @@ module PTC (
     );
 
     HLD P1(
-        .Q(Q),
         .HLD1(HLD1),
         .HLD2(HLD2),
         .clk2(clk2),
         .clk4(clk4),
         .Sel(Sel[0]),
         .DIV_M(DIV_M),
-        .DIV_N(DIV_N),
         .M(M[0]),
-        .clk_ext(clk_ext),
         .Reset_PD(Reset_PD),
         .rst_n(rst_n)
     );
 
     PD P2(
-        .DIV_M(DIV_M),
-        .clk_out(clk_out),
         .Reset_PD(Reset_PD),
         .COMP(COMP),
         .N_counter(N_counter),

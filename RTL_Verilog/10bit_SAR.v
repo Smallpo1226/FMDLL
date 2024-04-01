@@ -9,24 +9,24 @@ module SAR (
     reg [3:0] count_next;
 
     always @(*) begin
-		Q_next <= Q;
-        count_next <= count;
+		Q_next = Q;
+        count_next = count;
         if (COMP == 1'b0) begin    //lag
             if (count != 0) begin
-                Q_next[count] <= 0;
-                Q_next[count-1] <= 1;
-                count_next <= count - 4'd1;
+                Q_next[count] = 0;
+                Q_next[count-1] = 1;
+                count_next = count - 4'd1;
             end else if (count == 0) begin
-                Q_next[0] <= 0;
-				count_next <= 0;
+                Q_next[0] = 0;
+				count_next = 0;
             end    
         end else if (COMP == 1'b1) begin    //lead
             if (count != 0) begin
-                Q_next[count-1] <= 1;
-                count_next <= count - 4'd1;
+                Q_next[count-1] = 1;
+                count_next = count - 4'd1;
             end else if (count == 0)begin
-                Q_next[0] <= 1;
-				count_next <= 0;
+                Q_next[0] = 1;
+				count_next = 0;
             end
         end 
     end

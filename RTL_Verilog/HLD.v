@@ -5,11 +5,8 @@ module HLD (
     input clk2,
     input clk4,
     input DIV_M,
-    input DIV_N,
     input M,
-    input [9:0] Q,
     input Sel, //sel[0]
-    input clk_ext, 
     input rst_n,
     output Reset_PD,
     output  HLD1,
@@ -30,27 +27,4 @@ module HLD (
     D_latch DL2(.en(Ctrl_HLD2),.d(dummy2),.q(HLD2),.rst_n(rst_n));
     
     assign Reset_PD = (HLD1 | HLD2);
-    
-    /*
-    reg harmonic_comp;
-    always @(negedge DIV_N or negedge rst_n) begin
-        if (~rst_n) begin
-            harmonic_comp = 0;
-        end else if (DIV_M == 1) begin
-            harmonic_comp = 1;
-        end else if (DIV_M == 0) begin
-            harmonic_comp = 0;
-        end
-    end
-
-    always @(posedge DIV_N or negedge rst_n) begin
-        if (~rst_n) begin
-            Reset_PD <= 0;
-        end else if (DIV_M == 1 | harmonic_comp == 1) begin
-            Reset_PD <= 1;
-        end else if (DIV_M == 0) begin
-            Reset_PD <= 0;
-        end
-    end
-    */
 endmodule 

@@ -17,11 +17,11 @@ module FD_N(
 
   always @(*) begin
     if (N_counter == N || N_counter == 3'd0) begin
-      DIV_N_tmp <= 1;
+      DIV_N_tmp = 1;
     end else if (N_counter == N - 4'd1) begin
-      DIV_N_tmp <= 0;
+      DIV_N_tmp = 0;
     end else begin
-      DIV_N_tmp <= 1;
+      DIV_N_tmp = 1;
     end
   end 
 

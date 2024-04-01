@@ -28,5 +28,5 @@ module DCDL (
 	FDL D3(.clk_in(clk_fine_out),.T(T_f2),.Tb(Tb_f2),.clk_out(inv_in));
 	assign clk_out = ~inv_in;
 
-	assign clk_mid_tmp = (Sel==2'b01 && clk_ext==1'b1 && clk_out_out==1'b0) ? 0 : clk_mid;
+	assign clk_mid_tmp = (Sel==2'b01 && clk_ext==1'b1 && clk_out_out==1'b0) ? 0 : clk_mid; //eliminate the glitch
 endmodule
